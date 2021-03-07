@@ -11,12 +11,37 @@ main_window.document.title = "Twitch.tv 🔴 Notifier"
 bodyTag = main_window.document.getElementsByTagName("body");
 bodyTag[0].setAttribute("style","background: #36245c")
 
+
+
+/*Zalozeni tlacitka settigns*/
 setting_button = main_window.document.createElement("input");
 setting_button.setAttribute("value", "settings");
 setting_button.setAttribute("type","button")
 bodyTag[0].appendChild(setting_button);
 setting_button.addEventListener("click",SetNickName);
 
+/*Zalozeni tlacitka povolit notifikace zap vyp*/
+notificationText = main_window.document.createElement("p");
+notificationText.innerText = "Notification: "
+
+notification_button = main_window.document.createElement("input");
+notification_button.setAttribute("value", "Off");
+notification_button.setAttribute("type","button")
+bodyTag[0].appendChild(notificationText);
+bodyTag[0].appendChild(notification_button);
+notification_button.addEventListener("click",SetNickName);
+
+/*Zalozeni tlacitka alert box zap Vyp*/ 
+alertBoxText = main_window.document.createElement("p");
+alertBoxText.innerText = "AlertBox: "
+
+alert_button = main_window.document.createElement("input");
+alert_button.setAttribute("value", "Off");
+alert_button.setAttribute("type","button");
+alertBoxText.innerText = "Alert Box: "
+bodyTag[0].appendChild(alertBoxText);
+bodyTag[0].appendChild(alert_button);
+alert_button.addEventListener("click",SetNickName);
 
 nick = ""
 
@@ -27,6 +52,7 @@ timer = setInterval(loadViewerCount,5000);
 
 function SetNickName()
 {
+    Notification.requestPermission();
     nick = main_window.prompt("Insert Your 🔴 Twitch Nick","");
     main_window.alert(nick);
 }
