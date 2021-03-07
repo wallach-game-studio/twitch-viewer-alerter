@@ -39,7 +39,9 @@ function loadViewerCount()
         console.log("user count change");
         if(count>prevCount)
         {
+            clearInterval(timer);
             main_window.alert(" ❤  You have new viever 🔴 , greet him",5000);
+            timer = setInterval(loadViewerCount,5000);
         }
         prevCount = count;
     }
