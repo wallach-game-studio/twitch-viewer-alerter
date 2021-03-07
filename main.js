@@ -62,8 +62,8 @@ prevCountNot = 0;
 count = 0;
 countNot = 0;
 
+timer2 = setInterval(notificationOutputFuntion,2500);
 timer = setInterval(loadViewerCount,5000);
-setInterval(notificationOutputFuntion,5000);
 
 function ChangeSettings(setting,button)
 {
@@ -88,13 +88,12 @@ function SetNickName()
 
 function loadViewerCount()
 {
-    count = parseInt(document.getElementsByClassName("tw-animated-number")[0].innerText);
+    count = parseInt(document.getElementsByClassName("tw-animated-number")[0].innerText.replace(",",""));
     if(count != prevCount)
     {
         console.log("user count change");
         if(count>prevCount)
         {
-            
             clearInterval(timer);
             main_window.alert(" ❤  You have new viever 🔴 , greet him",5000);
             timer = setInterval(loadViewerCount,5000);
@@ -105,7 +104,7 @@ function loadViewerCount()
 
 function notificationOutputFuntion()
 {
-    countNot = parseInt(document.getElementsByClassName("tw-animated-number")[0].innerText);
+    countNot = parseInt(document.getElementsByClassName("tw-animated-number")[0].innerText.replace(",",""));
     if(countNot != prevCountNot)
     {
         console.log("user count change Not");
