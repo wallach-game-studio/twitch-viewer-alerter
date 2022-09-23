@@ -96,7 +96,7 @@ function load_viewer_count() {
 }
 
 function display_notification() {
-    countNot = parseInt(document.getElementsByClassName("ScAnimatedNumber-acnd2k-0")[0].innerText.replace(",", ""));
+    countNot = parseInt(document.querySelector(".ScAnimatedNumber-sc-acnd2k-0").innerText.replace(",", ""));
     if (countNot != prevCountNot) {
         console.log("user count change Not");
         if (countNot > prevCountNot) {
